@@ -19,12 +19,13 @@
     "express": "^4.17.1",
     "graphql": "^15.4.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.15"
-  },
-  "devDependencies": {
+    "mongoose": "^5.10.15",
     "@babel/core": "^7.12.9",
     "@babel/node": "^7.12.6",
     "@babel/preset-env": "^7.12.7",
     "nodemon": "^2.0.6"
+  },
+  "devDependencies": {
+
   }
 }

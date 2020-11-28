@@ -40,9 +40,9 @@ server.listen().then(({ url }) => {
 });
 // app.listen(5000, setupMongoose);
 
-process.on('SIGINT', exitHandler);
-process.on('SIGQUIT', exitHandler);
-process.on('SIGTERM', exitHandler);
+// process.on('SIGINT', exitHandler);
+// process.on('SIGQUIT', exitHandler);
+// process.on('SIGTERM', exitHandler);
 
 
 // const MongoClient = require('mongodb').MongoClient;

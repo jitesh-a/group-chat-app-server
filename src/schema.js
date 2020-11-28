@@ -22,6 +22,7 @@ const typeDefs = gql`
     email: String
     message: String
     group: Group
+    createdAt: String
   }
 
   type Query {

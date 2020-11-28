@@ -20,13 +20,24 @@ const authenticate = (currentUser) => {
   }
 }
 
+const decodeUser = (currentUser) => {
+  const token = req.headers['token'];
+  return jwt.decode(token);
+}
+
 const getJWTSecret = () => {
   const JWT_SECRET = process.env.JWT_SECRET || 'mysecret';
   return JWT_SECRET;
 }
 
+const exitHandler = () => {
+  const { DB_CONNECTION } = global;
+  if (DB_CONNECTION) DB_CONNECTION.close()
+}
 export {
   getUser,
   getJWTSecret,
-  authenticate
+  authenticate,
+  decodeUser,
+  exitHandler
 }

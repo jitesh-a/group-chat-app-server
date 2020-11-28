@@ -6,11 +6,16 @@
   "scripts": {
     "test": "jest",
     "start": "nodemon --exec babel-node src/index.js",
-    "start:ci": "node src/index.js"
+    "start:ci": "node src/index.js",
+    "lint": "eslint --ext .js ./ --report-unused-disable-directives --color",
+    "lint-fix": "eslint --ext .js ./ --report-unused-disable-directives --color --fix"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.7",
     "apollo-server": "^2.19.0",
     "apollo-server-express": "^2.19.0",
     "bcrypt": "^5.0.0",
@@ -19,13 +24,12 @@
     "express": "^4.17.1",
     "graphql": "^15.4.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.15",
-    "@babel/core": "^7.12.9",
-    "@babel/node": "^7.12.6",
-    "@babel/preset-env": "^7.12.7",
-    "nodemon": "^2.0.6"
+    "mongoose": "^5.10.15"
   },
   "devDependencies": {
-
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.6"
   }
 }

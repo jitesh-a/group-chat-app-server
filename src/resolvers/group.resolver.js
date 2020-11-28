@@ -1,4 +1,3 @@
-import { AuthenticationError } from 'apollo-server';
 import { getAllGroups } from '../services/group.service';
 import { authenticate } from '../utils/helper';
 
@@ -15,5 +14,5 @@ export default {
       authenticate(currentUser);
       return getAllGroups();
     },
-  }
+  },
 };

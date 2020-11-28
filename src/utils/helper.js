@@ -1,8 +1,14 @@
 import jwt from 'jsonwebtoken';
 import { AuthenticationError } from 'apollo-server';
 
+const getJWTSecret = () => {
+  const JWT_SECRET = process.env.JWT_SECRET || 'mysecret';
+  return JWT_SECRET;
+};
+
+
 const getUser = async (req) => {
-  const token = req.headers['token'];
+  const { token } = req.headers;
 
   if (token) {
     try {
@@ -18,26 +24,15 @@ const authenticate = (currentUser) => {
   if (!currentUser) {
     throw new AuthenticationError('You are not authenticated');
   }
-}
-
-const decodeUser = (currentUser) => {
-  const token = req.headers['token'];
-  return jwt.decode(token);
-}
-
-const getJWTSecret = () => {
-  const JWT_SECRET = process.env.JWT_SECRET || 'mysecret';
-  return JWT_SECRET;
-}
+};
 
 const exitHandler = () => {
   const { DB_CONNECTION } = global;
-  if (DB_CONNECTION) DB_CONNECTION.close()
-}
+  if (DB_CONNECTION) DB_CONNECTION.close();
+};
 export {
   getUser,
   getJWTSecret,
   authenticate,
-  decodeUser,
-  exitHandler
-}
+  exitHandler,
+};

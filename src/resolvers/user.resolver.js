@@ -9,15 +9,15 @@ const users = [
     _id: 1,
     email: 'jitesh.om@gmail.com',
     password: 'test123',
-    name: 'Jitesh Ahuja'
+    name: 'Jitesh Ahuja',
   },
   {
     _id: 2,
     email: 'test@gmail.com',
     password: 'test123',
-    name: 'Dummy User'
-  }
-]
+    name: 'Dummy User',
+  },
+];
 
 export default {
   Query: {
@@ -25,12 +25,12 @@ export default {
       // if (!me) {
       //   throw new AuthenticationError('You are not authenticated');
       // }
-      const user = users.find(user => user._id === id);
+      const user = users.find((user) => user._id === id);
       return user;
     },
 
     login: async (parent, { email, password }, context, info) => {
-      const user = users.find(user => user.email === email && user.password === password);
+      const user = users.find((user) => user.email === email && user.password === password);
 
       if (!user) {
         throw new AuthenticationError('Invalid credentials');
@@ -46,12 +46,10 @@ export default {
       const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: 24 * 10 * 50 });
 
       return {
-        token
+        token,
       };
     },
 
-    users: async (parent, args, context, info) => {
-      return users;
-    },
-  }
+    users: async (parent, args, context, info) => users,
+  },
 };

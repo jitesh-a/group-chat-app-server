@@ -56,3 +56,15 @@ query Login {
 ### Quick setup
 1. npm install/yarn
 2. npm run start/ yarn start
+
+### Other useful scripts
+1. npm run lint (see lint erros)
+2. npm run lint-fix (fix potentially fixable)
+
+
+### TODO List
+1. Add unit/regression tests
+2. Add/Configure webpack for bundling
+3. Add logger
+4. Move constants to a seperare file
+5. Create model for user (save to db)
